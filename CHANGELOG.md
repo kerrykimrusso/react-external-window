@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [Unreleased]
 
+
+
+
+# [0.1.1] / 2018-06-15
+
+* Fix import of `Window` in example documentation
+
+
+
 # [0.1.0] / 2018-06-14
 
 * Initial release!

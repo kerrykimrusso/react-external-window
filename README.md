@@ -74,7 +74,7 @@ Say you have an app that has some data visualizations, among them a component ca
 ``` jsx
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Window } from 'react-external-window';
+import Window from 'react-external-window';
 import { actionTypes } from './reducer';
 import SweetChart from './SweetChart';
 
