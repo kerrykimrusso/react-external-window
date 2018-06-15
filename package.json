@@ -1,6 +1,6 @@
 {
   "name": "react-external-window",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A declarative way to render components in an external window from within your react application",
   "main": "./lib/index.js",
   "files": [
