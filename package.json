@@ -1,0 +1,52 @@
+{
+  "name": "react-external-window",
+  "version": "0.1.0",
+  "description": "A declarative way to render components in an external window from within your react application",
+  "main": "./lib/index.js",
+  "files": [
+    "src",
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "prepare": "npm build",
+    "prebuild": "npm run clean",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build": "npm run build:commonjs && npm run build:es",
+    "clean": "rimraf lib es dist",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kerrykimrusso/react-external-window.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "window",
+    "portal",
+    "renderSubtreeIntoContainer"
+  ],
+  "author": "Kerry Kim Russo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kerrykimrusso/react-external-window/issues"
+  },
+  "homepage": "https://github.com/kerrykimrusso/react-external-window#readme",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "prettier": "1.12.1",
+    "rimraf": "^2.6.2"
+  }
+}
