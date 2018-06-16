@@ -27,6 +27,7 @@ A `Window` component accepts the following props. For more information, visit [M
 | `name` | Name passed to `window.open` |
 | `y` | Maps to `top` property of `windowFeatures` | `0` |
 | `x` | Maps to `left` poperty of `windowFeatures` | `0` |
+| `stylesheet` | Absolute URL to style resource | Clones all style blocks from parent app |
 | `width` | Initial width in pixels of child window |
 | `height` | Initial height in pixels of child window |
 | `menubar` | Show menubar on child window. Acceptable values are `1`/`0`, `yes`/`no` | `0` |

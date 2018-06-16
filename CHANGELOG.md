@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+# [0.2.0] / 2018-06-16
+
+* Add `stylesheet` prop which accepts an absolute URL to a style resource
+* Copy parent `<style />`s by default unless a `stylesheet` prop is passed
+
+
+
 # [0.1.1] / 2018-06-15
 
 * Fix import of `Window` in example documentation
