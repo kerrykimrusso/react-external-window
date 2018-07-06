@@ -1,13 +1,33 @@
 import { PureComponent } from "react";
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
+import PropTypes from "prop-types";
+import { attachResources } from "../utils";
+
+const bools = ["yes", "no", 1, 0];
 
 export default class Window extends PureComponent {
+  static propTypes = {
+    top: PropTypes.number,
+    left: PropTypes.number,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    menubar: PropTypes.oneOf(bools),
+    scrollbars: PropTypes.oneOf(bools),
+    status: PropTypes.oneOf(bools),
+    toolbar: PropTypes.oneOf(bools),
+    titlebar: PropTypes.oneOf(bools),
+    resources: PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+    ),
+  };
+
   static defaultProps = {
     menubar: 0,
     scrollbars: 1,
     status: 0,
     toolbar: 0,
     titlebar: 0,
+    resources: [],
   };
 
   window = null;
@@ -35,29 +55,15 @@ export default class Window extends PureComponent {
   };
 
   _setupDom = () => {
-    const { stylesheet, title } = this.props;
-    if (typeof stylesheet === "string") {
-      if (stylesheet.search(/https?:\/\//) === -1) {
-        console.warn("If stylesheet is provided, must be an absolute URL");
-      } else {
-        var css = document.createElement("link");
-        css.setAttribute("rel", "stylesheet");
-        css.setAttribute("href", stylesheet);
-        this.window.document.head.appendChild(css);
-      }
-    } else {
-      const parent = this.window.opener;
-      parent.document.querySelectorAll("style").forEach(styleEl => {
-        this.window.document.head.appendChild(styleEl.cloneNode(true));
-      });
-    }
+    const { resources, title } = this.props;
+    const doc = this.window.document;
+    doc.title = title;
     const rootEl = document.createElement("div");
-    this.window.document.title = title;
-    this.window.document.body.appendChild(rootEl);
+    doc.body.appendChild(rootEl);
+    attachResources(doc, resources);
     this.window.addEventListener("beforeunload", this._onBeforeUnload, {
       once: true,
     });
-
     return rootEl;
   };
 
