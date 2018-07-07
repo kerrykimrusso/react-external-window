@@ -3,3 +3,4 @@ dist
 es
 lib
 yarn-error.log
+.npmrc
