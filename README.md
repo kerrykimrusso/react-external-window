@@ -41,7 +41,7 @@ A `Window` component accepts the following props. For more information, visit [M
 
 ![Parts of a Child Window](https://developer.mozilla.org/@api/deki/files/210/=FirefoxChromeToolbarsDescription7a.gif)
 
-**React External Window** can have be supplied `children` or a `function`, which is passed the external window instance.
+**React External Window** can be supplied `children` or a `function`, which is passed the external window instance.
 
 ``` js
 <Window 
